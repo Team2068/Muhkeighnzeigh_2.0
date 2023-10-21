@@ -1,6 +1,7 @@
 # Muhkeighnzeigh_2.0 [ 2023 Charged Up Revised ]
 
-This is [The Metal Jackets](https://www.metaljackets.org/) robot code for the 2023 FIRST Robotics Competition, Charged Up.
+This is the revision and redemption of [The Metal Jackets](https://www.metaljackets.org/) after our utter failure of a year, 2023.
+Worlds #3, 2024
 
 ## Docs / Resources
 
