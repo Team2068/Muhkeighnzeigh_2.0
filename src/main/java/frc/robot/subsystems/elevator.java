@@ -4,6 +4,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,10 +16,18 @@ public class elevator extends SubsystemBase {
   /** Creates a new elevator. */
   public elevator() {
     elevatorMotor2.follow(elevatorMotor1, true);
+    elevatorMotor1.getPIDController().setP(0.3);
+    elevatorMotor1.getPIDController().setI(0);
+    elevatorMotor1.getPIDController().setD(0);
+    elevatorMotor1.getEncoder().setPosition(0);
   }
 
-  public void move(double voltage){
-    elevatorMotor1.setVoltage(voltage);
+  public void setSpeed(double speed){
+    elevatorMotor1.set(speed);
+  }
+
+  public void setPosition(double position){
+    elevatorMotor1.getPIDController().setReference(position, ControlType.kPosition);
   }
 
   public void stop() {
