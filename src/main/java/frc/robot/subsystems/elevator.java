@@ -21,6 +21,10 @@ public class elevator extends SubsystemBase {
     elevatorMotor1.setVoltage(voltage);
   }
 
+  public void stop() {
+    elevatorMotor1.stopMotor();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
