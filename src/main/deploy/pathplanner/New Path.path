@@ -1,0 +1,183 @@
+{
+  "waypoints": [
+    {
+      "anchorPoint": {
+        "x": 1.7763183603290305,
+        "y": 0.4239366171040047
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.7763183603290282,
+        "y": 0.4239366171040047
+      },
+      "holonomicAngle": 0,
+      "isReversal": false,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    },
+    {
+      "anchorPoint": {
+        "x": 7.0755260741290735,
+        "y": 0.9249526191360088
+      },
+      "prevControl": {
+        "x": 6.218017916805066,
+        "y": 0.8960478497880088
+      },
+      "nextControl": {
+        "x": 6.218017916805066,
+        "y": 0.8960478497880088
+      },
+      "holonomicAngle": 0,
+      "isReversal": true,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    },
+    {
+      "anchorPoint": {
+        "x": 1.6606992829370293,
+        "y": 1.0983812352240103
+      },
+      "prevControl": {
+        "x": 0.6606992829370293,
+        "y": 1.0983812352240103
+      },
+      "nextControl": {
+        "x": 2.6606992829370295,
+        "y": 1.0983812352240103
+      },
+      "holonomicAngle": 0,
+      "isReversal": false,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    },
+    {
+      "anchorPoint": {
+        "x": 7.104430843477074,
+        "y": 2.1871275473320186
+      },
+      "prevControl": {
+        "x": 6.535970379633067,
+        "y": 0.6648096950040071
+      },
+      "nextControl": {
+        "x": 7.6728913073210805,
+        "y": 3.70944539966003
+      },
+      "holonomicAngle": 0,
+      "isReversal": false,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    },
+    {
+      "anchorPoint": {
+        "x": 1.71850882163303,
+        "y": 5.096874328364042
+      },
+      "prevControl": {
+        "x": 2.9036043649010406,
+        "y": 5.308842636916044
+      },
+      "nextControl": {
+        "x": 0.46714203454683156,
+        "y": 4.8730526266087875
+      },
+      "holonomicAngle": 0,
+      "isReversal": false,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    },
+    {
+      "anchorPoint": {
+        "x": 5.37014468259706,
+        "y": 3.6420009378480303
+      },
+      "prevControl": {
+        "x": 5.842255915281063,
+        "y": 4.750017096188039
+      },
+      "nextControl": null,
+      "holonomicAngle": 178.71747291728983,
+      "isReversal": false,
+      "velOverride": null,
+      "isLocked": false,
+      "isStopPoint": false,
+      "stopEvent": {
+        "names": [],
+        "executionBehavior": "parallel",
+        "waitBehavior": "none",
+        "waitTime": 0
+      }
+    }
+  ],
+  "maxVelocity": 1e+22,
+  "maxAcceleration": 1000.0,
+  "isReversed": null,
+  "markers": [
+    {
+      "position": 0.0,
+      "names": [
+        "Score"
+      ]
+    },
+    {
+      "position": 0.8727272727272228,
+      "names": [
+        "Pickup"
+      ]
+    },
+    {
+      "position": 1.9272727272726986,
+      "names": [
+        "event"
+      ]
+    },
+    {
+      "position": 2.872727272727102,
+      "names": [
+        "Pickup"
+      ]
+    },
+    {
+      "position": 4.072727272727279,
+      "names": [
+        "Score"
+      ]
+    }
+  ]
+}
