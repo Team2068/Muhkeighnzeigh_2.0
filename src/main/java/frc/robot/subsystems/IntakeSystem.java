@@ -4,10 +4,8 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.AlternateEncoderType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMaxAlternateEncoder;
-import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
@@ -44,8 +42,8 @@ public class IntakeSystem extends SubsystemBase {
     return intakeEncoder.getAbsolutePosition();
   }
   
-  public void setVoltage(double voltage) {
-    intakeMotor.setVoltage(voltage);
+  public void setSpeed(double speed) {
+    intakeMotor.set(speed);
   }
   
   @Override

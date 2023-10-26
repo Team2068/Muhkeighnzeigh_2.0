@@ -43,14 +43,8 @@ public class subWristem extends SubsystemBase {
     return wristEncoder.getAbsolutePosition();
   }
   
-  public void setPosition(boolean whichPosition) { //true = up : false = down 
-    if (whichPosition = true) {
-      wristMotor.getPIDController().setReference(Math.toDegrees(60), ControlType.kPosition);
-    }
-
-    if (whichPosition = false) {
-      wristMotor.getPIDController().setReference(Math.toDegrees(-60), ControlType.kPosition);
-    }
+  public void setPosition(boolean isOut) { 
+    wristMotor.getPIDController().setReference(Math.toDegrees((isOut == true) ? 60 : 0), ControlType.kPosition);
   } 
 
   @Override
