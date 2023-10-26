@@ -4,26 +4,25 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.AlternateEncoderType;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxAlternateEncoder;
 import com.revrobotics.CANSparkMax.ControlType;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class subWristem extends SubsystemBase {
-  public DutyCycleEncoder wristMotor;
+  public DutyCycleEncoder wristEncoder;
   public CANSparkMax wristMotor;
   /** Creates a new wristSystem. */
   public subWristem() {
-    wristMotor = new DutyCycleEncoder(0);
-    wristMotor.setDutyCycleRange(0,1);
+    wristEncoder = new DutyCycleEncoder(0);
+    wristEncoder.setDutyCycleRange(0,1);
     wristMotor = new CANSparkMax(69, MotorType.kBrushless);
-    wristMotor.reset();
+    wristEncoder.reset();
 
-    wristMotor.setPositionOffset(0);
+    wristEncoder.setPositionOffset(0);
 
     wristMotor.getPIDController().setP(0);
     wristMotor.getPIDController().setI(0);
@@ -33,21 +32,27 @@ public class subWristem extends SubsystemBase {
   }
 
   public void resetEncoder() {
-    wristMotor.reset();
+    wristEncoder.reset();
   }
 
   public double getPos() {
-    return (wristMotor.getEncoder().getposition()) % 360;
+    return (wristMotor.getEncoder().getPosition()) % 360;
   }
 
   public double encoderPos() {
-    return wristMotor.getAbsolutePosition();
+    return wristEncoder.getAbsolutePosition();
   }
   
-  public void setVoltage(double voltage) {
-    wristMotor.setVoltage(voltage);
-  }
-  
+  public void setPosition(boolean whichPosition) { //true = up : false = down 
+    if (whichPosition = true) {
+      wristMotor.getPIDController().setReference(Math.toDegrees(60), ControlType.kPosition);
+    }
+
+    if (whichPosition = false) {
+      wristMotor.getPIDController().setReference(Math.toDegrees(-60), ControlType.kPosition);
+    }
+  } 
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

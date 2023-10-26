@@ -37,7 +37,7 @@ public class IntakeSystem extends SubsystemBase {
   }
 
   public double getPos() {
-    return (intakeMotor.getEncoder().getposition()) % 360;
+    return (intakeMotor.getEncoder().getPosition()) % 360;
   }
 
   public double encoderPos() {
@@ -45,7 +45,7 @@ public class IntakeSystem extends SubsystemBase {
   }
   
   public void setVoltage(double voltage) {
-    intakeEncoder.setVoltage(voltage);
+    intakeMotor.setVoltage(voltage);
   }
   
   @Override
