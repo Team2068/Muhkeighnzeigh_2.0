@@ -4,20 +4,27 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.AlternateEncoderType;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxAlternateEncoder;
 import com.revrobotics.CANSparkMax.ControlType;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+<<<<<<< HEAD
 public class wristSystem extends SubsystemBase {
   public DutyCycleEncoder wristEncoder;
   public CANSparkMax wristMotor;
   /** Creates a new wristSystem. */
   public wristSystem() {
+=======
+public class subWristem extends SubsystemBase {
+  public DutyCycleEncoder wristEncoder;
+  public CANSparkMax wristMotor;
+  /** Creates a new wristSystem. */
+  public subWristem() {
+>>>>>>> a7762fb25b5bc54643b433afbd09acb81e27551f
     wristEncoder = new DutyCycleEncoder(0);
     wristEncoder.setDutyCycleRange(0,1);
     wristMotor = new CANSparkMax(69, MotorType.kBrushless);
@@ -37,17 +44,24 @@ public class wristSystem extends SubsystemBase {
   }
 
   public double getPos() {
-    return (wristMotor.getEncoder().getposition()) % 360;
+    return (wristMotor.getEncoder().getPosition()) % 360;
   }
 
   public double encoderPos() {
     return wristEncoder.getAbsolutePosition();
+<<<<<<< HEAD
   }
   
   public void setVoltage(double voltage) {
     wristEncoder.setVoltage(voltage);
+=======
+>>>>>>> a7762fb25b5bc54643b433afbd09acb81e27551f
   }
   
+  public void setPosition(boolean isOut) { 
+    wristMotor.getPIDController().setReference(Math.toDegrees((isOut == true) ? 60 : 0), ControlType.kPosition);
+  } 
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
