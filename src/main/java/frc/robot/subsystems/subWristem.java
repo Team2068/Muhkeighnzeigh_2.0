@@ -3,50 +3,41 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.SparkMaxAlternateEncoder;
 import com.revrobotics.CANSparkMax.ControlType;
 
-import edu.wpi.first.wpilibj.DutyCycleEncoder;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class subWristem extends SubsystemBase {
-  public DutyCycleEncoder wristEncoder;
   public CANSparkMax wristMotor;
-  /** Creates a new wristSystem. */
+  public CANSparkMax intakeMotor;
+  
   public subWristem() {
-    wristEncoder = new DutyCycleEncoder(0);
-    wristEncoder.setDutyCycleRange(0,1);
     wristMotor = new CANSparkMax(69, MotorType.kBrushless);
-    wristEncoder.reset();
+    intakeMotor = new CANSparkMax(420, MotorType.kBrushless);
 
-    wristEncoder.setPositionOffset(0);
+    wristMotor.getEncoder().setPositionConversionFactor(123/456);
 
     wristMotor.getPIDController().setP(0);
     wristMotor.getPIDController().setI(0);
     wristMotor.getPIDController().setD(0);
-    wristMotor.getAlternateEncoder(SparkMaxAlternateEncoder.Type.kQuadrature, 8192);
-    wristMotor.getEncoder().setPositionConversionFactor(360);
+
+    intakeMotor.getPIDController().setP(0);
+    intakeMotor.getPIDController().setI(0);
+    intakeMotor.getPIDController().setD(0);
   }
 
-  public void resetEncoder() {
-    wristEncoder.reset();
-  }
-
-  public double getPos() {
-    return (wristMotor.getEncoder().getPosition()) % 360;
-  }
-
-  public double encoderPos() {
-    return wristEncoder.getAbsolutePosition();
-  }
-  
-  public void setPosition(boolean isOut) { 
-    wristMotor.getPIDController().setReference(Math.toDegrees((isOut == true) ? 60 : 0), ControlType.kPosition);
+  public void setWristPosition(boolean isOut) {
+    SmartDashboard.putBoolean("Is Intake Out", isOut);
+    wristMotor.getPIDController().setReference(Math.toDegrees((isOut) ? 60 : 0), ControlType.kPosition);
   } 
 
+  public void setIntakeSpeed(double speed) {
+    intakeMotor.set(speed);
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
