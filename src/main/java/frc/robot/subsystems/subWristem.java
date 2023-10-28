@@ -29,12 +29,12 @@ public class subWristem extends SubsystemBase {
     intakeMotor.getPIDController().setD(0);
   }
 
-  public void setWristPosition(boolean isOut) {
+  public void setPosition(boolean isOut) {
     SmartDashboard.putBoolean("Is Intake Out", isOut);
     wristMotor.getPIDController().setReference(Math.toDegrees((isOut) ? 60 : 0), ControlType.kPosition);
   } 
 
-  public void setIntakeSpeed(double speed) {
+  public void setSpeed(double speed) {
     intakeMotor.set(speed);
   }
   

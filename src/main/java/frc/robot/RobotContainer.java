@@ -4,11 +4,24 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.NamedCommands;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.commands.Inake;
+import frc.robot.commands.Score;
+import frc.robot.commands.Stopintake;
+import frc.robot.commands.lowerElevator;
 
 public class RobotContainer {
   public RobotContainer() {
+
+    NamedCommands.registerCommand("ScoreHigh", new Score(2));
+    NamedCommands.registerCommand("ScoreLow", new Score(1));
+    NamedCommands.registerCommand("ScoreMid", new Score(0));
+    NamedCommands.registerCommand("stopIntake", new Stopintake());
+    NamedCommands.registerCommand("lowerElevator", new lowerElevator());
+    NamedCommands.registerCommand("Pickup", new Inake());
     configureBindings();
   }
 
