@@ -12,11 +12,14 @@ import frc.robot.subsystems.subWristem;
 public class Score extends CommandBase {
   static final double highHeight = 1462;
   static final double midHeight = 1614;
-  elevator Elevator = new elevator();
-  subWristem intake = new subWristem();
+  elevator Elevator;
+  subWristem intake;
   double height;
   /** Creates a new Score. */
-  public Score(int x) {
+  public Score(int x, elevator Elevator, subWristem intake) {
+    this.Elevator = Elevator;
+    this.intake = intake;
+    addRequirements(Elevator, intake);
     switch(x){
       case 0: height = 0; //lowest height
       break;

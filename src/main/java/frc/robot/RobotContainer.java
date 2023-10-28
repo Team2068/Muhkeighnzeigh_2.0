@@ -15,14 +15,16 @@ import frc.robot.commands.lowerElevator;
 
 public class RobotContainer {
   public RobotContainer() {
+    configureBindings();
+  }
 
+  public void autonomousInit() {
     NamedCommands.registerCommand("ScoreHigh", new Score(2));
     NamedCommands.registerCommand("ScoreLow", new Score(1));
     NamedCommands.registerCommand("ScoreMid", new Score(0));
     NamedCommands.registerCommand("stopIntake", new Stopintake());
     NamedCommands.registerCommand("lowerElevator", new lowerElevator());
     NamedCommands.registerCommand("Pickup", new Inake());
-    configureBindings();
   }
 
   private void configureBindings() {}

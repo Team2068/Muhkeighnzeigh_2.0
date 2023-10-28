@@ -4,12 +4,16 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.networktables.NetworkTable.SubTableListener;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.subWristem;
 
 public class Inake extends CommandBase {
+  
   subWristem intake = new subWristem();
-  public Inake() {
+  public Inake(subWristem intake) {
+    this.intake = intake;
+    addRequirements(intake);
     // Use addRequirements() here to declare subsystem dependencies.
   }
   // Called every time the scheduler runs while the command is scheduled.
