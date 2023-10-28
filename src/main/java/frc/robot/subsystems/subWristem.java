@@ -13,17 +13,17 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class subWristem extends SubsystemBase {
-  public DutyCycleEncoder wristMotor;
+public class wristSystem extends SubsystemBase {
+  public DutyCycleEncoder wristEncoder;
   public CANSparkMax wristMotor;
   /** Creates a new wristSystem. */
-  public subWristem() {
-    wristMotor = new DutyCycleEncoder(0);
-    wristMotor.setDutyCycleRange(0,1);
+  public wristSystem() {
+    wristEncoder = new DutyCycleEncoder(0);
+    wristEncoder.setDutyCycleRange(0,1);
     wristMotor = new CANSparkMax(69, MotorType.kBrushless);
-    wristMotor.reset();
+    wristEncoder.reset();
 
-    wristMotor.setPositionOffset(0);
+    wristEncoder.setPositionOffset(0);
 
     wristMotor.getPIDController().setP(0);
     wristMotor.getPIDController().setI(0);
@@ -33,7 +33,7 @@ public class subWristem extends SubsystemBase {
   }
 
   public void resetEncoder() {
-    wristMotor.reset();
+    wristEncoder.reset();
   }
 
   public double getPos() {
@@ -41,11 +41,11 @@ public class subWristem extends SubsystemBase {
   }
 
   public double encoderPos() {
-    return wristMotor.getAbsolutePosition();
+    return wristEncoder.getAbsolutePosition();
   }
   
   public void setVoltage(double voltage) {
-    wristMotor.setVoltage(voltage);
+    wristEncoder.setVoltage(voltage);
   }
   
   @Override
