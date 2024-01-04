@@ -48,8 +48,8 @@ public class Limelight extends SubsystemBase {
     
     final String stream, cam;
     // Methods: getStreamMode, getCameraMode -- Undefined for type Limelight
-    stream = (getStreamMode() == subs.LimelightConstants.StreamMode.PIP_MAIN) ? "Main" : "Secondary";
-    cam = (getCameraMode() == Constants.LimelightConstants.CamMode.VISION) ? "Vision" : "Driver";
+    stream = (getStreamMode() == LimelightConstants.StreamMode.PIP_MAIN) ? "Main" : "Secondary";
+    cam = (getCameraMode() == LimelightConstants.CamMode.VISION) ? "Vision" : "Driver";
 
     // getDistamce is undefined for type Limelight
     SmartDashboard.putString("Stream Mode", stream);
@@ -132,7 +132,7 @@ public class Limelight extends SubsystemBase {
       case LimelightConstants.StreamMode.PIP_MAIN:
           setStreamMode(LimelightConstants.StreamMode.PIP_SECONDARY);
           break;
-      case Constants.LimelightConstants.StreamMode.PIP_SECONDARY:
+      case LimelightConstants.StreamMode.PIP_SECONDARY:
           setCameraMode(LimelightConstants.StreamMode.STANDARD);
       default:
           setStreamMode(LimelightConstants.StreamMode.PIP_MAIN);
@@ -143,10 +143,10 @@ public class Limelight extends SubsystemBase {
   public void switchPipeline(){
     switch (getPipeline()) {
       case LimelightConstants.Pipelines.REFLECTIVE_TAPE:
-          setPipeline(Constants.LimelightConstants.Pipelines.BRIGHT);
+          setPipeline(LimelightConstants.Pipelines.BRIGHT);
           break;
       case LimelightConstants.Pipelines.BRIGHT:
-          setPipeline(Constants.LimelightConstants.Pipelines.REFLECTIVE_TAPE);
+          setPipeline(LimelightConstants.Pipelines.REFLECTIVE_TAPE);
           break;
       }
   }
